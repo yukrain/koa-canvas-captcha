@@ -58,6 +58,7 @@ var getCaptcha = function*(){
    - `arithmetic` - random arithmetic
 
 ## Result
-  * `answer` - The correct verification code
+  * `text` - the words on the picture image
+  * `answer` - the correct code 
   * `imageBuffer` - imageBuffer
 

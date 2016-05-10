@@ -1,35 +1,45 @@
+[![Build Status](https://travis-ci.org/Treri/koa-canvas-captcha.svg?branch=master)](https://travis-ci.org/Treri/koa-canvas-captcha)
+[![NPM version](https://badge.fury.io/js/koa-canvas-captcha.svg)](http://badge.fury.io/js/koa-canvas-captcha)
+[![Dependency Status](https://david-dm.org/Treri/koa-canvas-captcha.svg)](https://david-dm.org/Treri/koa-canvas-captcha)
+
+[![NPM](https://nodei.co/npm/koa-canvas-captcha.png?downloads=true&stars=true)](https://www.npmjs.org/package/koa-canvas-captcha)
+
 # koa-canvas-captcha
 适用于Koa框架的canvas绘制的验证码库
 
 ## Install 
 
 ```bash
-    npm install koa-canvas-captcha
+npm install koa-canvas-captcha
 ```
+
 ## Demo
 
 ```javascript
-    var captcha = require('koa-canvas-captcha');            
-    var getCaptcha = function*(){
-         this.type = 'jpg';
-         this.set({
-             'Cache-Control': 'no-cache, private, no-store, must-revalidate, max-stale=0, post-check=0, pre-check=0',
-             'Expires': 'Sun, 12 Jan 1986 12:00:00 GMT'
-         });
-         //生成验证码 返回text和图buffer
-         var item = yield captcha({
-             length: 4, 
-             fontSize: 30, 
-             width: 150, 
-             height: 32, 
-             color: 'green', // code color,
-             background: 'rgb(245,245,245)', // captcha background color
-             lineWidth: 0.5, // Interference lines width
-             type: 'normal'
-         });
-         this.session && (this.session.captcha = item.answer);
-         this.body = item.imageBuffer
-     };
+var captcha = require('koa-canvas-captcha');            
+var getCaptcha = function*(){
+    
+     //生成验证码 返回text和图buffer
+     var item = yield captcha({
+         length: 4, 
+         fontSize: 30, 
+         width: 150, 
+         height: 32, 
+         color: 'green', // code color,
+         background: 'rgb(245,245,245)', // captcha background color
+         lineWidth: 0.5, // Interference lines width
+         type: 'normal'
+     });
+     //将验证码答案存在session
+     this.session.captcha = item.answer;
+    //返回图片
+     this.type = 'jpg';
+              this.set({
+                  'Cache-Control': 'no-cache, private, no-store, must-revalidate, max-stale=0, post-check=0, pre-check=0',
+                  'Expires': 'Sun, 12 Jan 1986 12:00:00 GMT'
+              });
+     this.body = item.imageBuffer
+ };
 ```
 ## Options
 

@@ -45,18 +45,19 @@ module.exports = function(params) {
         var text;
         var answer;
         switch ( params.type ){
+
             case 'number':
                 answer = text =  Math.random().toString(10).substr(2, params.codeLength).toLocaleUpperCase();
                 break;
+
             case 'letter':
                 for(var i =0; i<params.codeLength; i++){
                     text +=  String.fromCharCode(Math.ceil(Math.random() * 25) + 65).toLocaleUpperCase();
                 }
                 answer = text;
                 break;
+
             case 'arithmetic':
-
-
                 switch( Math.ceil(Math.random() * 4) ){
                     //加
                     case 1:
@@ -92,16 +93,20 @@ module.exports = function(params) {
                         text =  [ num1 * num2, "÷", num1, "="];
                         answer = num2;
                         break;
-
                 }
 
                 params.codeLength = 4;
                 break;
+
             default:
                 answer =text =  Math.random().toString(35).substr(2, params.codeLength).toLocaleUpperCase();
         }
 
-        text = params.text || text;
+        //自定义验证码
+        if(params.text){
+            answer = text = params.text;
+        }
+
 
         for (i = 0; i < text.length; i++) {
             ctx.setTransform(
@@ -124,7 +129,7 @@ module.exports = function(params) {
                 if (err) {
                     return reject(err)
                 } else {
-                    return resolve({answer: answer, imageBuffer: data})
+                    return resolve({text: text, answer: answer, imageBuffer: data})
                 }
             })
         });

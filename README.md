@@ -16,7 +16,8 @@ npm install koa-canvas-captcha
 ## Demo
 
 ```javascript
-var captcha = require('koa-canvas-captcha');            
+var captcha = require('koa-canvas-captcha'); 
+var path = require("path");
 var getCaptcha = function*(){
     
      //生成验证码 返回text和图buffer
@@ -28,7 +29,8 @@ var getCaptcha = function*(){
          color: 'green', // code color,
          background: 'rgb(245,245,245)', // captcha background color
          lineWidth: 0.5, // Interference lines width
-         type: 'normal'
+         type: 'normal',
+         fontPath: path.join(__dirname, './captchaFont.ttf')
      });
      //将验证码答案存在session
      this.session.captcha = item.answer;
@@ -49,8 +51,9 @@ var getCaptcha = function*(){
 * `height` - (Number | default: 32) height width
 * `lineWidth` - (Number | default: 1) background line width
 * `background` - (String | default: rgb(255,255,255)) background color
-* `color` - (String | de fault: rgb(0,0,0)) font color
+* `color` - (String | default: rgb(0,0,0)) font color
 * `text` - (String) custom captcha text
+* `fontPath` - (String ) the *.ttf file path 
 * `type` - (String | default: normal) captcha type
    - `normal` - random letter and number 
    - `letter` - just letter 

@@ -5,8 +5,6 @@ var path = require("path");
 if (!Font) {
     throw new Error('Need to compile with font support');
 }
-//字体
-var enFont = new Font('enFont', path.join(__dirname, './font/captchaFont.ttf'));
 
 module.exports = function(params) {
 
@@ -18,6 +16,7 @@ module.exports = function(params) {
     params.canvasWidth = params.width || 150
     params.canvasHeight = params.height || 32
     params.type = params.type || 'normal';     //normal 普通  number 仅数字 letter 仅字母 arithmetic 算数题
+    params.fontPath = params.fontPath ||  path.join(__dirname, './font/captchaFont.ttf');
 
     return function*() {
 
@@ -31,6 +30,7 @@ module.exports = function(params) {
         ctx.fillStyle = params.color
         ctx.lineWidth = params.lineWidth
 
+        var enFont = new Font('enFont',  params.fontPath);
         ctx.addFont(enFont);
         ctx.font = 'normal normal '+params.fontSize + 'px enFont'
 

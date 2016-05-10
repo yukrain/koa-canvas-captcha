@@ -8,14 +8,6 @@ describe('create a new captcha', function() {
     it('custom text captcha', function*() {
 
         var item = yield captcha({
-            //length: 4, //code length
-            //fontSize: 30, //code size
-            //width: 150, // captcha width
-            //height: 32, // captcha height
-            //color: 'green', // code color,
-            //background: 'rgb(245,245,245)', // captcha background color
-            //lineWidth: 0.5, // Interference lines width
-            //type: 'arithmetic',
             text:'ABCD'
         });
 
@@ -24,7 +16,7 @@ describe('create a new captcha', function() {
 
     it('custom length captcha', function*() {
         var item = yield captcha({
-            length: 6, //code length
+            length: 6
         });
         expect(item.answer.length).to.be.equal(6);
     });

@@ -9,10 +9,11 @@ addons:
     packages:
       - libcairo2-dev
       - libjpeg8-dev
+      - libpango1.0-dev
+      - libgif-dev
       - build-essential
       - g++-4.8
 env:
   - CXX=g++-4.8
 sudo: false
-
 script: "npm test"

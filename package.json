@@ -1,6 +1,6 @@
 {
   "name": "koa-canvas-captcha",
-  "version": "0.1.3",
+  "version": "0.1.4",
   "description": "A captcha library for koa framework",
   "main": "index.js",
   "scripts": {

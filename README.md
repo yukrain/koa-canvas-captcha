@@ -10,7 +10,7 @@
 ## Install 
 
 ```bash
-npm install koa-canvas-captcha
+npm install koa-canvas-captcha --save
 ```
 
 ## Demo
@@ -58,10 +58,10 @@ var getCaptcha = function*(){
    - `normal` - random letter and number 
    - `letter` - just letter 
    - `number` - just number 
-   - `arithmetic` - random arithmetic
+   - `arithmetic` - random arithmetic 
 
 ## Result
-  * `text` - the words on the picture image
-  * `answer` - the correct code 
+  * `text` - the words on the captcha
+  * `answer` - the answer should input
   * `imageBuffer` - imageBuffer
 

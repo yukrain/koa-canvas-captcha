@@ -1,6 +1,6 @@
-[![Build Status](https://travis-ci.org/Treri/koa-canvas-captcha.svg?branch=master)](https://travis-ci.org/Treri/koa-canvas-captcha)
+[![Build Status](https://travis-ci.org/yukrain/koa-canvas-captcha.svg?branch=master)](https://travis-ci.org/yukrain/koa-canvas-captcha)
 [![NPM version](https://badge.fury.io/js/koa-canvas-captcha.svg)](http://badge.fury.io/js/koa-canvas-captcha)
-[![Dependency Status](https://david-dm.org/Treri/koa-canvas-captcha.svg)](https://david-dm.org/Treri/koa-canvas-captcha)
+[![Dependency Status](https://david-dm.org/yukrain/koa-canvas-captcha.svg)](https://david-dm.org/yukrain/koa-canvas-captcha)
 
 [![NPM](https://nodei.co/npm/koa-canvas-captcha.png?downloads=true&stars=true)](https://www.npmjs.org/package/koa-canvas-captcha)
 
